@@ -1,0 +1,14 @@
+citHeader("To cite package 'iopysch' in publications use:")
+
+citEntry(entry = "Manual",
+         title = "iopsych: Methods for industrial/organizational psychology.",
+         author = personList(as.person("Allen P. Goebl"),
+                    as.person("Jeff A. Jones"), as.person("Adam S. Beatty")),
+         year = "2016",
+         note = "version 0.90",
+textVersion = 
+ paste("Goebl, A. P., Jones, J. A., and Beatty, A. S. (2016).",
+        "iopsych: Methods for industrial/organizational psychology.
+        R package version 0.90")
+)
+
