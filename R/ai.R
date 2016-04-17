@@ -68,9 +68,9 @@ dComposite <- function(rxx, d_vec, wt_vec=rep(1, length(d_vec))) {
 #' the quality and the adverse impact of single-stage selection decisions.
 #' \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
 #' @examples
-#' aiEst(d = 0.15, sr = 0.25, pct_minority = 0.30)
+#' aiEst(d = -0.15, sr = 0.25, pct_minority = 0.30)
 #' 
-#' aiEst(d = 0.40, sr = 0.10, pct_minority = 0.15)
+#' aiEst(d = -0.40, sr = 0.10, pct_minority = 0.15)
 #' @export
 #' @importFrom stats pnorm
 #' @importFrom stats uniroot
@@ -78,12 +78,12 @@ aiEst <- function(d, sr, pct_minority){
     pct_majority <- (1 - pct_minority)
     #Function to be minimized
     stRoot <- function(x) {
-        pct_majority*(1 - pnorm(x)) + pct_minority*(1 - pnorm(x+d)) - sr
+        pct_majority*(1 - pnorm(x)) + pct_minority*(1 - pnorm(x - d)) - sr
     }
     #Selected
     uc <- uniroot(stRoot, interval=c(-3,3))$root
     sr_majority <- (1 - pnorm(uc))
-    sr_minority <- (1 - pnorm(uc+d))
+    sr_minority <- (1 - pnorm(uc - d))
     ai <- (sr_minority / sr_majority)
     out <- list(ai, sr, sr_majority, sr_minority, uc)
     names(out) <- c("ai","overall_sr", "sr_majority", "sr_minority", "uc")
@@ -94,9 +94,9 @@ aiEst <- function(d, sr, pct_minority){
 #'
 #' @param mr The correlation between the predictor and criterion composites.
 #' @param dx A vector of d values for the predictors. These d values are expected
-#'           to have been computed in the direction of Majority - Minority.
+#'           to have been computed in the direction of Minority - Majority.
 #' @param dy A vector of d values for the criteria These d values are expected
-#'           to have been computed in the direction of Majority - Minority.
+#'           to have been computed in the direction of Minority - Majority
 #' @param sr The percentage of the applicant population who are selected.
 #' @param pct_minority The percentage of the applicant population who are part of
 #'        a given minority group.
@@ -113,23 +113,23 @@ aiEst <- function(d, sr, pct_minority){
 #' the quality and the adverse impact of single-stage selection decisions.
 #' \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
 #' @examples
-#' aiPux(.6, dx=.8, sr=.3, pct_minority=.25)
-#' aiPux(.6, dx=.8, dy=.2, sr=.3, pct_minority=.25)
+#' aiPux(0.6, dx=-0.8, sr=0.3, pct_minority=0.25)
+#' aiPux(0.6, dx=-0.8, dy=-0.2, sr=0.3, pct_minority=0.25)
 #' @export
-aiPux <- function(mr, dx, dy=1, sr, pct_minority) {
+aiPux <- function(mr, dx, dy = -1, sr, pct_minority) {
     list2env(x=aiEst(dx, sr, pct_minority), envir=environment())
     pct_majority <- 1 - pct_minority; pct_majority
     #Expected criterion score of applicant groups (relative to majority) 
-    meanZi <- -dy + mr * dnorm(uc + dx)/(1 - pnorm(uc + dx))
+    meanZi <-  dy + mr * dnorm(uc - dx)/(1 - pnorm(uc - dx))
     meanZa <-  mr * dnorm(uc) / (1 - pnorm(uc))
     meanZt <- (pct_majority*sr_majority*meanZa+pct_minority*sr_minority*meanZi)/sr
     majority_std <- matrix(c(meanZi, meanZa, meanZt), 3, 1)
     rownames(majority_std) <- c('Zi', 'Za', 'Zt')
     #Expected criterion score of applicant groups (relative to the total group)
     sd_global <- sqrt(1 + pct_minority * pct_majority * dy^2)
-    meanZig <- (meanZi + pct_minority * dy) / sd_global
-    meanZag <- (meanZa + pct_minority * dy) / sd_global
-    meanZtg <- (meanZt + pct_minority * dy) / sd_global
+    meanZig <- (meanZi - pct_minority * dy) / sd_global
+    meanZag <- (meanZa - pct_minority * dy) / sd_global
+    meanZtg <- (meanZt - pct_minority * dy) / sd_global
     global_std <- matrix(c(meanZig, meanZag, meanZtg), 3, 1)
     #Format Output
     rownames(global_std) <- c('Zi', 'Za', 'Zt')
@@ -146,9 +146,9 @@ aiPux <- function(mr, dx, dy=1, sr, pct_minority) {
 #' @param y_col A vector of columns representing criterion variables.
 #' @param x_col A vector of columns representing predictor variables.
 #' @param dX A vector of d values for the predictors. These d values are expected
-#'           to have been computed in the direction of Majority - Minority.
+#'           to have been computed in the direction of Minority - Majority.
 #' @param dY A vector of d values for the criteria These d values are expected
-#'           to have been computed in the direction of Majority - Minority.
+#'           to have been computed in the direction of Minority - Majority.
 #' @param wt_x Weights for the predictors to form the overall composite predictor.
 #' @param wt_y Weights for the criteria to form the overall composite criterion.
 #' @param sr The percentage of the applicant population who are selected.
@@ -181,9 +181,8 @@ aiPux <- function(mr, dx, dy=1, sr, pct_minority) {
 #' sr    <- 0.25
 #' pct_minority <- .20
 #'
-#' # Note that the d-values are reversed from what the CAIQS manual reports (see pg 4)
-#' dX   <- c(1, 0.09, 0.09, 0.20)
-#' dY   <- c(0.450, 0.0)
+#' dX   <- c(-1, -0.09, -0.09, -0.20)
+#' dY   <- c(-0.450, 0.0)
 #'
 #' aiPuxComposite(R, 5:6, 1:4, dX, dY, wt_x, wt_y, sr, pct_minority)
 #' 
