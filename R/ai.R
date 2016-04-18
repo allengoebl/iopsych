@@ -33,7 +33,7 @@ d2cor <- function (d) (sqrt((d ^ 2) / (4 + (d ^ 2))))
 #' @return A vector of correlation coefficients.
 #' @author Jeff Jones and Allen Goebl
 #' @references Sackett, P. R., & Ellingson, J. E. (1997). \emph{Personnel 
-#' Psychology.}, 50(3), 707-721.
+#' Psychology., 50(3)}, 707-721.
 #' @note This is essentially the same function as solveWt().
 #' @examples
 #' Rxx <- matrix(.3, 3, 3); diag(Rxx) <- 1
@@ -59,14 +59,18 @@ dComposite <- function(rxx, d_vec, wt_vec=rep(1, length(d_vec))) {
 #' @param sr The percentage of the applicant population who are selected.
 #' @param pct_minority The percentage of the applicant population who are part of
 #'        a given minority group.
-#' @return (1) The adverse impact ratio, (2) The overall selection ration, (3) 
-#'         The selection ratio for the majority group, (4) The selection ratio
-#'         for the minority group, and (5) the predictor cutoff value that corresponds to 
-#'         the given overall selection ratio
+#' @return 
+#'   \describe{
+#'     \item{ai}{The adverse impact ratio.}
+#'     \item{overall_sr}{The overall selection ratio.}
+#'     \item{sr_majority}{The selection ratio for the majority group.}
+#'     \item{sr_minority}{The selection ratio for the minority group.}
+#'     \item{uc}{the predictor cutoff value that corresponds to the given overall selection ratio}
+#'   }
 #' @author Jeff Jones and Allen Goebl
 #' @references De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
 #' the quality and the adverse impact of single-stage selection decisions.
-#' \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
+#' \emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
 #' @examples
 #' aiEst(d = -0.15, sr = 0.25, pct_minority = 0.30)
 #' 
@@ -100,7 +104,7 @@ aiEst <- function(d, sr, pct_minority){
 #' @param sr The percentage of the applicant population who are selected.
 #' @param pct_minority The percentage of the applicant population who are part of
 #'        a given minority group.
-#' @return \itemize{
+#' @return \describe{
 #'             \item{AI}{Adverse Impact}
 #'             \item{Overeall_sr}{The overall selection ratio set by the user}
 #'             \item{Majority_sr}{Majority Selection Rate}
@@ -154,7 +158,7 @@ aiPux <- function(mr, dx, dy = -1, sr, pct_minority) {
 #' @param sr The percentage of the applicant population who are selected.
 #' @param pct_minority The percentage of the applicant population who are part of
 #'        a given minority group.
-#' @return \itemize{
+#' @return \describe{
 #'             \item{AI}{Adverse Impact}
 #'             \item{Overeall_sr}{The overall selection ratio set by the user}
 #'             \item{Majority_sr}{Majority Selection Rate}
@@ -165,8 +169,8 @@ aiPux <- function(mr, dx, dy = -1, sr, pct_minority) {
 #' @author Jeff Jones and Allen Goebl
 #' @references De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
 #' the quality and the adverse impact of single-stage selection decisions.
-#' \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
-#' De Corte, W. (2003). Caiqs user's guide. http://allserv.rug.ac.be/~wdecorte/software.html
+#' \emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
+#' @references De Corte, W. (2003). Caiqs user's guide. http://allserv.rug.ac.be/~wdecorte/software.html
 #' @examples
 #' # Example taken from De Corte, W. (2003)
 #' R <- matrix(c(1.000, 0.170, 0.000, 0.100, 0.290, 0.160, 

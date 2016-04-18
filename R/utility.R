@@ -43,7 +43,7 @@
 #' @note This functions can except either (1) pux, (2) uxs and rxy, or (3) sr and rxy.
 #' @author Allen Goebl and Jeff Jones
 #' @references Cronbach, L. J., & Gleser, G. C. (1965). \emph{Psychological  
-#' tests and personnel decisions.}, 37-40.
+#' tests and personnel decisions}.
 #' @examples
 #' utilityBcg(sdy=10000, rxy=.50, sr=.30)
 #' @export
@@ -73,7 +73,7 @@ utilityBcg <- function(n=1, sdy, rxy=NULL, uxs=NULL, sr=NULL, pux=NULL, cost=0, 
 #' @author Allen Goebl and Jeff Jones
 #' @references Boudreau, J.W. (1983). Economic considerations in estimating
 #'   the utility of human resource productivity improvement programs. 
-#'   \emph{Personnel Psychology}, 36, 551-576.
+#'   \emph{Personnel Psychology, 36}, 551-576.
 #' @examples
 #' utilityB(sdy=10000, rxy=.50, sr=.30, period=4, v=.5, tax=.1, i=.02)
 #' @export
@@ -101,7 +101,7 @@ utilityB <- function(n=1, sdy, rxy=NULL, uxs=NULL, sr=NULL, pux=NULL, cost=0, pe
 #' @author Allen Goebl and Jeff Jones
 #' @references Schmidt, F. L., Hunter, J. E., & Pearlman, K. (1982). Assessing
 #'   the economic impact of personnel programs on workforce productivity.
-#'   \emph{Personnel Psychology}, 35(2), 333-347.
+#'   \emph{Personnel Psychology, 35(2)}, 333-347.
 #' @examples
 #' utilityShp(sdy=10000, d=.50, period=4)
 #' @export
@@ -128,7 +128,7 @@ utilityShp <- function(n=1, sdy, d, cost=0, period=1) {
 #' @note This functions can except either (1) pux, (2) uxs and rxy, or (3) sr and rxy.
 #' @author Allen Goebl and Jeff Jones
 #' @references Raju, N.S., Burke, M.J. and Normand, J. (1990). A new approach
-#' for utility analysis. \emph{Journal of Applied Psychology}, 75, 3-12.
+#' for utility analysis. \emph{Journal of Applied Psychology, 75}, 3-12.
 #' @examples
 #' utilityRbn(sdr=10000, a=90000, rxy=.50, sr=.30)
 #' @export
@@ -155,7 +155,7 @@ utilityRbn <- function(n=1, sdr, a, rxy, uxs=NULL, sr=NULL, pux=NULL, cost=0, pe
 #' @author Allen Goebl and Jeff Jones
 #' @references Taylor, H. C., & Russell, J. T. (1939). The relationship of
 #' validity coefficients to the practical effectiveness of tests in selection:
-#' Discussion and tables. \emph{Journal of Applied Psychology}, 25(5), 565.
+#' Discussion and tables. \emph{Journal of Applied Psychology, 25(5)}, 565.
 #' @examples
 #' trModel(rxy=.5, sr=.5, br=.6)
 #' @export

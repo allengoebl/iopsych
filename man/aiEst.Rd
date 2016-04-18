@@ -15,10 +15,13 @@ aiEst(d, sr, pct_minority)
 a given minority group.}
 }
 \value{
-(1) The adverse impact ratio, (2) The overall selection ration, (3) 
-        The selection ratio for the majority group, (4) The selection ratio
-        for the minority group, and (5) the predictor cutoff value that corresponds to 
-        the given overall selection ratio
+\describe{
+    \item{ai}{The adverse impact ratio.}
+    \item{overall_sr}{The overall selection ratio.}
+    \item{sr_majority}{The selection ratio for the majority group.}
+    \item{sr_minority}{The selection ratio for the minority group.}
+    \item{uc}{the predictor cutoff value that corresponds to the given overall selection ratio}
+  }
 }
 \description{
 Estimate adverse impact given d and sr
@@ -27,6 +30,7 @@ Estimate adverse impact given d and sr
 aiEst(d = -0.15, sr = 0.25, pct_minority = 0.30)
 
 aiEst(d = -0.40, sr = 0.10, pct_minority = 0.15)
+
 }
 \author{
 Jeff Jones and Allen Goebl
@@ -34,6 +38,7 @@ Jeff Jones and Allen Goebl
 \references{
 De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
-\emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
+\emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
+
 }
 

@@ -16,12 +16,11 @@ paretoXX(r_mat, x_col, y_col, pts = 100)
 \item{pts}{The number of points used. Determines accuracy.}
 }
 \value{
-\itemize{
-            \item{betas}{A matrix of beta weights for each criteria weight}
-            \item{wt_one}{The weight given to the first criterion}
-            \item{multiple_r}{The correlation between the predictor and 
-                               criterion composites}
-             }
+\describe{
+     \item{betas}{A matrix of beta weights for each criteria weight}
+     \item{wt_one}{The weight given to the first criterion}
+     \item{multiple_r}{The correlation between the predictor and criterion composites}
+   }
 }
 \description{
 Computes data needed for a XX Pareto plot.

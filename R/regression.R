@@ -211,7 +211,7 @@ solveWt <- function(r_mat, y_col, x_col, wt) {
     return(out)
 }
 
-#' Find R2 given arbitrary predictor weights
+#' Find \eqn{R^2} given arbitrary predictor weights
 #' 
 #' @param r_mat A correlation matrix.
 #' @param y_col A vector of columns representing criterion variables.
@@ -244,7 +244,7 @@ solveWtR2 <- function(r_mat, y_col, x_col, wt) {
 
 #' Partially evaluated regression
 #' 
-#' Returns a function for calculating beta weights and R2 which has been 
+#' Returns a function for calculating beta weights and \eqn{R^2} which has been 
 #' partially evalauted with respect to rxx.
 #'
 #' @param rxx A matrix of predictor intercorrelations.

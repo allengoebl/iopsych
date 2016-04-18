@@ -15,7 +15,11 @@ This matrix should be based on the the unrestricted population.}
 \item{as_cor}{This argument can be set to FALSE to return a covariance matrix.}
 }
 \value{
+<<<<<<< HEAD
+The the correlation matrix or variance/covariance matrix in the unrestricted population.
+=======
 The the correlation matrix or variance covariance in the unrestricted population.
+>>>>>>> master
 }
 \description{
 Lawley multivariate range restriction correction.
@@ -32,7 +36,7 @@ The original function was written by Adam Beatty and adapted by Allen Goebl.
 }
 \references{
 Lawley D. N (1943). A note on Karl Pearson's selection formulae. 
-            \emph{Proceedings of the Royal Society of Edinburgh.},
-            62(Section A, Pt. 1), 28-30.
+            \emph{Proceedings of the Royal Society of Edinburgh,
+            62(Section A, Pt. 1)}, 28-30.
 }
 

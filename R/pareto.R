@@ -68,12 +68,12 @@
 #' @param y_col A vector of columns representing criterion variables.
 #' @param x_col A vector of columns representing predictor variables.
 #' @param pts The number of points used. Determines accuracy.
-#' @return  \itemize{
-#'             \item{betas}{A matrix of beta weights for each criteria weight}
-#'             \item{wt_one}{The weight given to the first criterion}
-#'             \item{multiple_r}{The correlation between the predictor and 
-#'                                criterion composites}
-#'              }
+#' @return  
+#'   \describe{
+#'      \item{betas}{A matrix of beta weights for each criteria weight}
+#'      \item{wt_one}{The weight given to the first criterion}
+#'      \item{multiple_r}{The correlation between the predictor and criterion composites}
+#'    }
 #' @author Allen Goebl and Jeff Jones
 #' @examples
 #' # Setup Data
@@ -116,13 +116,14 @@ paretoXX <- function(r_mat, x_col, y_col, pts=100) {
 #' @param pop The population or number of cases used by the algorithim.
 #' @param pred_lower The minimum weight allowed for each predictor. 
 #' @param pred_upper The maximum weight allowed for each predictor.
-#' @return  \itemize{
-#'             \item{betas}{A matrix of beta weights for each criteria weight}
-#'             \item{mr_d}{A matrix of multiple correlations or d values 
-#'                         corresponding to each row of beta weights.}
-#'             \item{pareto_optimal}{A vector indicating whether each value is
-#'                                   pareto optimal}
-#'          }
+#' @return  
+#'   \describe{
+#'     \item{betas}{A matrix of beta weights for each criteria weight}
+#'     \item{mr_d}{A matrix of multiple correlations or d values 
+#'                 corresponding to each row of beta weights.}
+#'     \item{pareto_optimal}{A vector indicating whether each value is
+#'           pareto optimal}
+#'   }
 #' @author Allen Goebl Jeff Jones
 #' @examples
 #' data(dls2007)

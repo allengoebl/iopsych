@@ -9,7 +9,11 @@
 asvab
 }
 \description{
+<<<<<<< HEAD
+This dataset was published in Wee, Newman, and Joseph (2014)
+=======
 This dataset was published in Wee, S., Newman, D. A., & Joseph, D. L. (2014)
+>>>>>>> master
 and describes the results of a military validation study. The first four
 rows contain the intercorrelations of the four predictor variables. The fifth
 row contains the black-white score differences (d). Rows 6-12 contain the 
@@ -19,8 +23,7 @@ variables.
 \references{
 Wee, S., Newman, D. A., & Joseph, D. L. (2014). More than g: 
 Selection quality and adverse impact implications of considering second-stratum
-cognitive abilities. Journal of Applied Psychology, 99(4), \emph{Journal of Applied
-Psychology}, 92(5), 1380.
+cognitive abilities. \emph{Journal of Applied Psychology, 99(4)}.
 }
 \keyword{datasets}
 

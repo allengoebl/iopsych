@@ -13,7 +13,7 @@ rmatRegPE(rxx)
 Partially evaluated regression function.
 }
 \description{
-Returns a function for calculating beta weights and R2 which has been 
+Returns a function for calculating beta weights and \eqn{R^2} which has been 
 partially evalauted with respect to rxx.
 }
 \examples{

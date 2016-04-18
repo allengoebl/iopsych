@@ -49,6 +49,6 @@ Allen Goebl and Jeff Jones
 \references{
 Boudreau, J.W. (1983). Economic considerations in estimating
   the utility of human resource productivity improvement programs. 
-  \emph{Personnel Psychology}, 36, 551-576.
+  \emph{Personnel Psychology, 36}, 551-576.
 }
 

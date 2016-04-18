@@ -47,6 +47,6 @@ Allen Goebl and Jeff Jones
 }
 \references{
 Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
-            menal test scores.}, 97-98.
+            menal test scores}.
 }
 

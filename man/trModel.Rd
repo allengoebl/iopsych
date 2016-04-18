@@ -29,6 +29,6 @@ Allen Goebl and Jeff Jones
 \references{
 Taylor, H. C., & Russell, J. T. (1939). The relationship of
 validity coefficients to the practical effectiveness of tests in selection:
-Discussion and tables. \emph{Journal of Applied Psychology}, 25(5), 565.
+Discussion and tables. \emph{Journal of Applied Psychology, 25(5)}, 565.
 }
 

@@ -42,6 +42,6 @@ Allen Goebl and Jeff Jones
 }
 \references{
 Cronbach, L. J., & Gleser, G. C. (1965). \emph{Psychological  
-tests and personnel decisions.}, 37-40.
+tests and personnel decisions}.
 }
 
