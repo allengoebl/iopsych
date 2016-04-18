@@ -151,29 +151,48 @@
 #' @param r_mat A correlation matrix.
 #' @param y_col The column representing the criterion variable.
 #' @param x_col A vector of columns representing predictor variables.
-#' @return Regression beta weights and R2.
+#' @param N Number of observations
+#' @param alpha alpha value for (1 - alpha)\% Confidence Interval
+#' @return Regression beta weights and \eqn{R^2}. If N is supplied, the standard error of 
+#' the beta weights as well as the confidence intervals are returned as well.
 #' @author Allen Goebl and Jeff Jones
+#' @note If N is non-null the function will compute corrected standard errors
+#' for the standardized regression coefficients using the delta method. For additional 
+#' details on the calculation of the corrected standard errors see Yuan and Chan (2011) 
+#' and Jones and Waller (2015).
+#' @references Jones, J. A. & Waller, N. G. (2015). The normal-theory and asymptotic 
+#' distribution-free covariance matrix of standardized regression coefficients: 
+#' Theoretical extensions and finite sample behavior. \emph{Psychometrika, 80}, 365-378.
+#' @references Yuan, K. and Chan, W. (2011). Biases and standard errors of
+#' standardized regression coefficients. \emph{Psychometrika, 76}, 670-690.
 #' @examples
-#'Rs <- matrix(c(1.0, 0.2,  0.3, 0.4, -0.4,
-#'               0.2, 1.0,  0.5, 0.1,  0.1,
-#'               0.3, 0.5,  1.0, 0.2, -0.3,
-#'               0.4, 0.1,  0.2, 1.0,  0.4,
-#'              -0.4, 0.1, -0.3, 0.4,  1.0), 5, 5)
-#'ys <- 5
-#'xs <- 1:4
+#' Rs <- matrix(c(1.0, 0.2,  0.3, 0.4, -0.4,
+#'                0.2, 1.0,  0.5, 0.1,  0.1,
+#'                0.3, 0.5,  1.0, 0.2, -0.3,
+#'                0.4, 0.1,  0.2, 1.0,  0.4,
+#'               -0.4, 0.1, -0.3, 0.4,  1.0), 5, 5)
+#' ys <- 5
+#' xs <- 1:4
 #'
-#'rmatReg(Rs, ys, xs)
+#' rmatReg(Rs, ys, xs)
+#' 
+#' # Example with standard errors
+#' rmatReg(Rs, ys, xs, N = 100)
 #' @export
-rmatReg <- function(r_mat, y_col, x_col) {
+#' @importFrom utils capture.output
+rmatReg <- function(r_mat, y_col, x_col, N = NULL, alpha = 0.05) {
     #Check Input
     .checkIndex(r_mat=r_mat, y_col=y_col, x_col=x_col)
     #Call Function
     term <- .indexMat(r_mat=r_mat, y_col=y_col, x_col=x_col)
+    if(!is.null(N)) invisible(capture.output(seOut <- fungible::seBetaCor(R = term$rxx, rxy = term$rxy, Nobs = N)))
+    else seOut <- NULL    
     out <- .rmatReg(rxx=term$rxx, rxy=term$rxy)
     #Format Output
       #NOTE: Maybe use class here
-    return(out)
+    return(list(R2 = out$R2, beta = out$beta, se_beta = seOut$se.Beta, ci_beta = seOut$CI.beta))
 }
+
 
 #' Find r given arbitrary predictor weights
 #' 
@@ -204,8 +223,8 @@ solveWt <- function(r_mat, y_col, x_col, wt) {
     #Check Input
     .checkIndex(r_mat=r_mat, y_col=y_col, x_col=x_col)
     #Call Function
-    term <- .indexMat(r_mat=r_mat, y_col=y_col, x_col=x_col)
-    out <- .solveWtVec(rxx=term$rxx, rxy=term$rxy, wt=wt)
+    term  <- .indexMat(r_mat=r_mat, y_col=y_col, x_col=x_col)
+    out   <- .solveWtVec(rxx=term$rxx, rxy=term$rxy, wt=wt)
     #Format Output
       #NOTE: Maybe use class here
     return(out)

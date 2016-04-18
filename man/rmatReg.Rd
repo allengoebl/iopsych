@@ -4,7 +4,7 @@
 \alias{rmatReg}
 \title{Regression}
 \usage{
-rmatReg(r_mat, y_col, x_col)
+rmatReg(r_mat, y_col, x_col, N = NULL, alpha = 0.05)
 }
 \arguments{
 \item{r_mat}{A correlation matrix.}
@@ -12,25 +12,47 @@ rmatReg(r_mat, y_col, x_col)
 \item{y_col}{The column representing the criterion variable.}
 
 \item{x_col}{A vector of columns representing predictor variables.}
+
+\item{N}{Number of observations}
+
+\item{alpha}{alpha value for (1 - alpha)\% Confidence Interval}
 }
 \value{
-Regression beta weights and R2.
+Regression beta weights and \eqn{R^2}. If N is supplied, the standard error of 
+the beta weights as well as the confidence intervals are returned as well.
 }
 \description{
 Regression
 }
+\note{
+If N is non-null the function will compute corrected standard errors
+for the standardized regression coefficients using the delta method. For additional 
+details on the calculation of the corrected standard errors see Yuan and Chan (2011) 
+and Jones and Waller (2015).
+}
 \examples{
 Rs <- matrix(c(1.0, 0.2,  0.3, 0.4, -0.4,
-              0.2, 1.0,  0.5, 0.1,  0.1,
-              0.3, 0.5,  1.0, 0.2, -0.3,
-              0.4, 0.1,  0.2, 1.0,  0.4,
-             -0.4, 0.1, -0.3, 0.4,  1.0), 5, 5)
+               0.2, 1.0,  0.5, 0.1,  0.1,
+               0.3, 0.5,  1.0, 0.2, -0.3,
+               0.4, 0.1,  0.2, 1.0,  0.4,
+              -0.4, 0.1, -0.3, 0.4,  1.0), 5, 5)
 ys <- 5
 xs <- 1:4
 
 rmatReg(Rs, ys, xs)
+
+# Example with standard errors
+rmatReg(Rs, ys, xs, N = 100)
 }
 \author{
 Allen Goebl and Jeff Jones
+}
+\references{
+Jones, J. A. & Waller, N. G. (2015). The normal-theory and asymptotic 
+distribution-free covariance matrix of standardized regression coefficients: 
+Theoretical extensions and finite sample behavior. \emph{Psychometrika, 80}, 365-378.
+
+Yuan, K. and Chan, W. (2011). Biases and standard errors of
+standardized regression coefficients. \emph{Psychometrika, 76}, 670-690.
 }
 

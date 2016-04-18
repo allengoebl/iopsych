@@ -6,7 +6,7 @@ Date: 2016-03-16
 Author: Allen Goebl <goebl005@umn.edu>, Jeff Jones <jone1087@umn.ed>, and Adam Beatty <abeatty@humrro.org>
 Maintainer: Allen Goebl <goebl005@umn.edu>
 Depends: R (>= 3.0)
-Imports: mvtnorm (>= 1.0), mco (>= 1.0), stats (>= 1.0)
+Imports: mvtnorm (>= 1.0), mco (>= 1.0), stats (>= 1.0), fungible (>= 1.1)
 Description: Collection of functions for IO Psychologists.
 License: BSD_3_clause + file LICENSE
 RoxygenNote: 5.0.1
