@@ -49,7 +49,7 @@
 #'          (see Johnson, 2000, ps 8 - 9). The object beta_star contains the regression weights from
 #'          regressing the criterion on Z, the 'best fitting orthogonal approximation' of the predictor 
 #'          variables (see Johnson, 2000, p. 5). The object lambda_star contains the regression coefficients 
-#'          from regressing Z on the predictor variables (see Jonhson, 2000, p. 8).
+#'          from regressing Z on the predictor variables (see Johnson, 2000, p. 8).
 #' @author Jeff Jones and Allen Goebl
 #' @references Johnson, J. (2000). A heuristic method for estimating the
 #'             relative weight of predictor variables in multiple regression.

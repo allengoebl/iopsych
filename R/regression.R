@@ -195,6 +195,8 @@ rmatReg <- function(r_mat, y_col, x_col, N = NULL, alpha = 0.05) {
 
 
 #' Find r given arbitrary predictor weights
+#'
+#' Find r given arbitrary predictor weights.
 #' 
 #' @param r_mat A correlation matrix.
 #' @param y_col A vector of columns representing criterion variables.

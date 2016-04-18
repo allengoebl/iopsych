@@ -3,7 +3,7 @@ Type: Package
 Title: Methods for Industrial/Organizational Psychology
 Version: 0.90.1
 Date: 2016-03-16
-Author: Allen Goebl <goebl005@umn.edu>, Jeff Jones <jone1087@umn.ed>, and Adam Beatty <abeatty@humrro.org>
+Author: Allen Goebl <goebl005@umn.edu>, Jeff Jones <jone1087@umn.edu>, and Adam Beatty <abeatty@humrro.org>
 Maintainer: Allen Goebl <goebl005@umn.edu>
 Depends: R (>= 3.0)
 Imports: mvtnorm (>= 1.0), mco (>= 1.0), stats (>= 1.0), fungible (>= 1.1)

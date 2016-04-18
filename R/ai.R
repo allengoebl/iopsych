@@ -56,8 +56,8 @@ dComposite <- function(rxx, d_vec, wt_vec=rep(1, length(d_vec))) {
 #' Estimate adverse impact given d and sr
 #'
 #' @param d Subgroup difference. 
-#' @param sr The percentage of the applicant population who are selected.
-#' @param pct_minority The percentage of the applicant population who are part of
+#' @param sr The percentage of the applicant population that is selected.
+#' @param pct_minority The percentage of the applicant population that is part of
 #'        a given minority group.
 #' @return 
 #'   \describe{
@@ -68,7 +68,7 @@ dComposite <- function(rxx, d_vec, wt_vec=rep(1, length(d_vec))) {
 #'     \item{uc}{the predictor cutoff value that corresponds to the given overall selection ratio}
 #'   }
 #' @author Jeff Jones and Allen Goebl
-#' @references De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
+#' @references De Corte, W., Lievens, F.(2003). A practical procedure to estimate
 #' the quality and the adverse impact of single-stage selection decisions.
 #' \emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
 #' @examples
@@ -100,9 +100,15 @@ aiEst <- function(d, sr, pct_minority){
 #' @param dx A vector of d values for the predictors. These d values are expected
 #'           to have been computed in the direction of Minority - Majority.
 #' @param dy A vector of d values for the criteria These d values are expected
+<<<<<<< 0064e9a28fc3f3cb2c53edbb97ff99cc5cbc1fcb
 #'           to have been computed in the direction of Minority - Majority
 #' @param sr The percentage of the applicant population who are selected.
 #' @param pct_minority The percentage of the applicant population who are part of
+=======
+#'           to have been computed in the direction of Majority - Minority.
+#' @param sr The percentage of the applicant population that is selected.
+#' @param pct_minority The percentage of the applicant population that is part of
+>>>>>>> FO changes
 #'        a given minority group.
 #' @return \describe{
 #'             \item{AI}{Adverse Impact}
@@ -113,7 +119,7 @@ aiEst <- function(d, sr, pct_minority){
 #'             \item{Global_Standardized}{Predicted composite criterion score relative to the overall population} 
 #'          }
 #' @author Jeff Jones and Allen Goebl
-#' @references De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
+#' @references De Corte, W., Lievens, F.(2003). A practical procedure to estimate
 #' the quality and the adverse impact of single-stage selection decisions.
 #' \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
 #' @examples
@@ -155,8 +161,8 @@ aiPux <- function(mr, dx, dy = -1, sr, pct_minority) {
 #'           to have been computed in the direction of Minority - Majority.
 #' @param wt_x Weights for the predictors to form the overall composite predictor.
 #' @param wt_y Weights for the criteria to form the overall composite criterion.
-#' @param sr The percentage of the applicant population who are selected.
-#' @param pct_minority The percentage of the applicant population who are part of
+#' @param sr The percentage of the applicant population that is selected.
+#' @param pct_minority The percentage of the applicant population that is part of
 #'        a given minority group.
 #' @return \describe{
 #'             \item{AI}{Adverse Impact}
