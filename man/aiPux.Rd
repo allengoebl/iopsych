@@ -4,16 +4,17 @@
 \alias{aiPux}
 \title{Estimate ai and average criterion scores for majority and minority groups.}
 \usage{
-aiPux(mr, dx, dy = 1, sr, pct_minority)
+aiPux(mr, dx, dy = -1, sr, pct_minority)
+
 }
 \arguments{
 \item{mr}{The correlation between the predictor and criterion composites.}
 
 \item{dx}{A vector of d values for the predictors. These d values are expected
-to have been computed in the direction of Majority - Minority.}
+to have been computed in the direction of Minority - Majority.}
 
 \item{dy}{A vector of d values for the criteria These d values are expected
-to have been computed in the direction of Majority - Minority.}
+to have been computed in the direction of Minority - Majority}
 
 \item{sr}{The percentage of the applicant population who are selected.}
 
@@ -21,7 +22,11 @@ to have been computed in the direction of Majority - Minority.}
 a given minority group.}
 }
 \value{
+<<<<<<< HEAD
 \describe{
+=======
+\itemize{
+>>>>>>> master
             \item{AI}{Adverse Impact}
             \item{Overeall_sr}{The overall selection ratio set by the user}
             \item{Majority_sr}{Majority Selection Rate}
@@ -34,8 +39,9 @@ a given minority group.}
 Estimate ai and average criterion scores for majority and minority groups.
 }
 \examples{
-aiPux(.6, dx=.8, sr=.3, pct_minority=.25)
-aiPux(.6, dx=.8, dy=.2, sr=.3, pct_minority=.25)
+aiPux(0.6, dx=-0.8, sr=0.3, pct_minority=0.25)
+aiPux(0.6, dx=-0.8, dy=-0.2, sr=0.3, pct_minority=0.25)
+
 }
 \author{
 Jeff Jones and Allen Goebl

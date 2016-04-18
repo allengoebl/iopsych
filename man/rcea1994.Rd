@@ -9,8 +9,13 @@
 rcea1994
 }
 \description{
+<<<<<<< HEAD
 This example data was published in Ree, Carretta, Earles, and Albert (1994).
 The data set contains two matrices stored as a list,
+=======
+This example data was published in Ree, M. J., Carretta, T. R., Earles, J. A.,
+& Albert, W. (1994). The data set contains two matrices stored as a list,
+>>>>>>> master
 which can be used to demonstrate multivariate range restriction corrections. The
 vstar matrix is the variance-covariance matrix of the unrestricted sample. The 
 vpp matrix is the variance covariance matrix of the restricted sample. The 
@@ -20,7 +25,11 @@ selection, which are also found in the upper left corner of the vstar matrix.
 \references{
 Ree, M. J., Carretta, T. R., Earles, J. A., & Albert, W. (1994).
 Sign changes when correcting for range restriction: A note on Pearson's and
+<<<<<<< HEAD
 Lawley's selection formulas. \emph{Journal of Applied Psychology, 72(2)}, 298.
+=======
+Lawley's selection formulas. \emph{Journal of Applied Psychology}, 72(2), 298.
+>>>>>>> master
 }
 \keyword{datasets}
 
