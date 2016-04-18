@@ -39,6 +39,6 @@ Jeff Jones and Allen Goebl
 }
 \references{
 Sackett, P. R., & Ellingson, J. E. (1997). \emph{Personnel 
-Psychology.}, 50(3), 707-721.
+Psychology., 50(3)}, 707-721.
 }
 

@@ -16,10 +16,10 @@ to the weight given to an item.}
 \item{type}{The type of output desired.}
 }
 \value{
-If type = cxc then a matrix of the intercorrelations between the specified 
-        composites are returned. If type = cxr then the intercorrelations 
+If \code{type} = "cxc" then a matrix of the intercorrelations between the specified 
+        composites are returned. If \code{type} = "cxr" then the intercorrelations 
         between the original item and the specified composites are returned.
-        If type = full then all the intercorrelations between both the original items and the specified composites are returned.
+        If \code{type} = "full" then all the intercorrelations between both the original items and the specified composites are returned.
 }
 \description{
 The key matrix is used to specify any number of weighted item composites.

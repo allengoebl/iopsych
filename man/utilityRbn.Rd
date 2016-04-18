@@ -45,6 +45,6 @@ Allen Goebl and Jeff Jones
 }
 \references{
 Raju, N.S., Burke, M.J. and Normand, J. (1990). A new approach
-for utility analysis. \emph{Journal of Applied Psychology}, 75, 3-12.
+for utility analysis. \emph{Journal of Applied Psychology, 75}, 3-12.
 }
 

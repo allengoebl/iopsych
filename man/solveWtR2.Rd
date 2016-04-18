@@ -2,7 +2,7 @@
 % Please edit documentation in R/regression.R
 \name{solveWtR2}
 \alias{solveWtR2}
-\title{Find R2 given arbitrary predictor weights}
+\title{Find \eqn{R^2} given arbitrary predictor weights}
 \usage{
 solveWtR2(r_mat, y_col, x_col, wt)
 }
@@ -19,7 +19,7 @@ solveWtR2(r_mat, y_col, x_col, wt)
 Regression R2.
 }
 \description{
-Find R2 given arbitrary predictor weights
+Find \eqn{R^2} given arbitrary predictor weights
 }
 \note{
 This just calls solveWt() and squares the output.

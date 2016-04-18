@@ -30,7 +30,7 @@ to have been computed in the direction of Majority - Minority.}
 a given minority group.}
 }
 \value{
-\itemize{
+\describe{
             \item{AI}{Adverse Impact}
             \item{Overeall_sr}{The overall selection ratio set by the user}
             \item{Majority_sr}{Majority Selection Rate}
@@ -71,7 +71,8 @@ Jeff Jones and Allen Goebl
 \references{
 De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
-\emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
+\emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
+
 De Corte, W. (2003). Caiqs user's guide. http://allserv.rug.ac.be/~wdecorte/software.html
 }
 

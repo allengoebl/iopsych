@@ -9,14 +9,14 @@
 dls2007
 }
 \description{
-This hypothetical dataset was published in Decorte, W., Lievens, F., Sackett,
-P. R. (2007). The first column contains black-white subgroup difference scores.
+This hypothetical dataset was published in De Corte, Lievens, and Sackett (2007). 
+The first column contains black-white subgroup difference scores.
 Columns 2-7 contain a hypothetical predictor, job performance correlation matrix.
 }
 \references{
-De Corte, W., Lievens, F., & Sackett, P. R. (2007) Combining
+De Corte, W., Lievens, F., & Sackett, P. R. (2007). Combining
 predictors to achieve optimal trade-offs between selection quality and adverse
-impact. emph{Journal of Applied Psychology}, 92(5), 1380.
+impact. \emph{Journal of Applied Psychology, 92(5)}, 1380.
 }
 \keyword{datasets}
 

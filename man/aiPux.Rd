@@ -21,7 +21,7 @@ to have been computed in the direction of Majority - Minority.}
 a given minority group.}
 }
 \value{
-\itemize{
+\describe{
             \item{AI}{Adverse Impact}
             \item{Overeall_sr}{The overall selection ratio set by the user}
             \item{Majority_sr}{Majority Selection Rate}

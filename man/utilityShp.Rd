@@ -35,6 +35,6 @@ Allen Goebl and Jeff Jones
 \references{
 Schmidt, F. L., Hunter, J. E., & Pearlman, K. (1982). Assessing
   the economic impact of personnel programs on workforce productivity.
-  \emph{Personnel Psychology}, 35(2), 333-347.
+  \emph{Personnel Psychology, 35(2)}, 333-347.
 }
 

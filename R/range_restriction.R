@@ -7,11 +7,11 @@
 #' @param vnp The covariance matrix of predictors explicitly used for selection. 
 #'        This matrix should be based on the the unrestricted population.
 #' @param as_cor This argument can be set to FALSE to return a covariance matrix.
-#' @return The the correlation matrix or variance covariance in the unrestricted population.
+#' @return The the correlation matrix or variance/covariance matrix in the unrestricted population.
 #' @author The original function was written by Adam Beatty and adapted by Allen Goebl.
 #' @references Lawley D. N (1943). A note on Karl Pearson's selection formulae. 
-#'             \emph{Proceedings of the Royal Society of Edinburgh.},
-#'             62(Section A, Pt. 1), 28-30.
+#'             \emph{Proceedings of the Royal Society of Edinburgh,
+#'             62(Section A, Pt. 1)}, 28-30.
 #' @examples
 #' data(rcea1994)
 #' vstar <- rcea1994$vstar

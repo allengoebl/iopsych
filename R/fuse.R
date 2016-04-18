@@ -96,7 +96,7 @@
 #' @return A correlation coefficient.
 #' @author Allen Goebl and Jeff Jones
 #' @references Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
-#'             menal test scores.}, 97-98.
+#'             menal test scores}.
 #' @examples
 #' Rxx <- matrix(c(1.00, 0.25,  0.50,  0.61,
 #'                 0.25, 1.00,  0.30,  0.10,
@@ -138,7 +138,7 @@ fuse <- function(r_mat, a, b, wt_a=rep(1, length(a)), wt_b=rep(1, length(b))) {
 #' @return A vector of correlation coefficients.
 #' @author Allen Goebl and Jeff Jones
 #' @references Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
-#'             mental test scores.}, 97-98.
+#'             mental test scores}.
 #' @examples
 #' data(dls2007)
 #' dat <- dls2007
@@ -170,10 +170,10 @@ fuseVec <- function(r_mat, a, wt_a=rep(1, length(a)), output="vec") {
 #'        each item contained in r_mat. The value if each element corresponds
 #'        to the weight given to an item.
 #' @param type The type of output desired.
-#' @return If type = cxc then a matrix of the intercorrelations between the specified 
-#'         composites are returned. If type = cxr then the intercorrelations 
+#' @return If \code{type} = "cxc" then a matrix of the intercorrelations between the specified 
+#'         composites are returned. If \code{type} = "cxr" then the intercorrelations 
 #'         between the original item and the specified composites are returned.
-#'         If type = full then all the intercorrelations between both the original items and the specified composites are returned.
+#'         If \code{type} = "full" then all the intercorrelations between both the original items and the specified composites are returned.
 #' @author Allen Goebl and Jeff Jones
 #' @examples
 #' Rxx <- matrix(c(1.00, 0.25,  0.50,  0.61,
