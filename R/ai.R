@@ -100,15 +100,9 @@ aiEst <- function(d, sr, pct_minority){
 #' @param dx A vector of d values for the predictors. These d values are expected
 #'           to have been computed in the direction of Minority - Majority.
 #' @param dy A vector of d values for the criteria These d values are expected
-<<<<<<< 0064e9a28fc3f3cb2c53edbb97ff99cc5cbc1fcb
-#'           to have been computed in the direction of Minority - Majority
-#' @param sr The percentage of the applicant population who are selected.
-#' @param pct_minority The percentage of the applicant population who are part of
-=======
 #'           to have been computed in the direction of Majority - Minority.
 #' @param sr The percentage of the applicant population that is selected.
 #' @param pct_minority The percentage of the applicant population that is part of
->>>>>>> FO changes
 #'        a given minority group.
 #' @return \describe{
 #'             \item{AI}{Adverse Impact}
