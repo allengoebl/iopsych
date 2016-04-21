@@ -19,11 +19,7 @@ solveWtR2(r_mat, y_col, x_col, wt)
 Regression R2.
 }
 \description{
-<<<<<<< HEAD
 Find \eqn{R^2} given arbitrary predictor weights
-=======
-Find R2 given arbitrary predictor weights
->>>>>>> master
 }
 \note{
 This just calls solveWt() and squares the output.

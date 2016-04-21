@@ -7,4 +7,5 @@
 
 * Allen Goebl
 * Jeff Jones
+* Jeff Dahlke
 * Adam Beatty

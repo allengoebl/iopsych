@@ -15,11 +15,7 @@ This matrix should be based on the the unrestricted population.}
 \item{as_cor}{This argument can be set to FALSE to return a covariance matrix.}
 }
 \value{
-<<<<<<< HEAD
 The the correlation matrix or variance/covariance matrix in the unrestricted population.
-=======
-The the correlation matrix or variance covariance in the unrestricted population.
->>>>>>> master
 }
 \description{
 Lawley multivariate range restriction correction.

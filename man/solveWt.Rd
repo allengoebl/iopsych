@@ -19,7 +19,7 @@ solveWt(r_mat, y_col, x_col, wt)
 The correlation between the weighted predictor composite and criterion.
 }
 \description{
-Find r given arbitrary predictor weights
+Find r given arbitrary predictor weights.
 }
 \note{
 This uses a simpler, faster version of the same formula used for fuse().

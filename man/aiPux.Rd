@@ -5,7 +5,6 @@
 \title{Estimate ai and average criterion scores for majority and minority groups.}
 \usage{
 aiPux(mr, dx, dy = -1, sr, pct_minority)
-
 }
 \arguments{
 \item{mr}{The correlation between the predictor and criterion composites.}
@@ -14,19 +13,15 @@ aiPux(mr, dx, dy = -1, sr, pct_minority)
 to have been computed in the direction of Minority - Majority.}
 
 \item{dy}{A vector of d values for the criteria These d values are expected
-to have been computed in the direction of Minority - Majority}
+to have been computed in the direction of Majority - Minority.}
 
-\item{sr}{The percentage of the applicant population who are selected.}
+\item{sr}{The percentage of the applicant population that is selected.}
 
-\item{pct_minority}{The percentage of the applicant population who are part of
+\item{pct_minority}{The percentage of the applicant population that is part of
 a given minority group.}
 }
 \value{
-<<<<<<< HEAD
 \describe{
-=======
-\itemize{
->>>>>>> master
             \item{AI}{Adverse Impact}
             \item{Overeall_sr}{The overall selection ratio set by the user}
             \item{Majority_sr}{Majority Selection Rate}
@@ -41,13 +36,12 @@ Estimate ai and average criterion scores for majority and minority groups.
 \examples{
 aiPux(0.6, dx=-0.8, sr=0.3, pct_minority=0.25)
 aiPux(0.6, dx=-0.8, dy=-0.2, sr=0.3, pct_minority=0.25)
-
 }
 \author{
 Jeff Jones and Allen Goebl
 }
 \references{
-De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
+De Corte, W., Lievens, F.(2003). A practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
 \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
 }

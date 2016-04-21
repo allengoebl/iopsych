@@ -19,7 +19,7 @@ A list containing the objects eps, beta_star, and lambda_star. The object eps co
          (see Johnson, 2000, ps 8 - 9). The object beta_star contains the regression weights from
          regressing the criterion on Z, the 'best fitting orthogonal approximation' of the predictor 
          variables (see Johnson, 2000, p. 5). The object lambda_star contains the regression coefficients 
-         from regressing Z on the predictor variables (see Jonhson, 2000, p. 8).
+         from regressing Z on the predictor variables (see Johnson, 2000, p. 8).
 }
 \description{
 Function to implement Johnson's (2000) relative weight computation.

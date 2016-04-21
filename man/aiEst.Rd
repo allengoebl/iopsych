@@ -9,9 +9,9 @@ aiEst(d, sr, pct_minority)
 \arguments{
 \item{d}{Subgroup difference.}
 
-\item{sr}{The percentage of the applicant population who are selected.}
+\item{sr}{The percentage of the applicant population that is selected.}
 
-\item{pct_minority}{The percentage of the applicant population who are part of
+\item{pct_minority}{The percentage of the applicant population that is part of
 a given minority group.}
 }
 \value{
@@ -30,15 +30,13 @@ Estimate adverse impact given d and sr
 aiEst(d = -0.15, sr = 0.25, pct_minority = 0.30)
 
 aiEst(d = -0.40, sr = 0.10, pct_minority = 0.15)
-
 }
 \author{
 Jeff Jones and Allen Goebl
 }
 \references{
-De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
+De Corte, W., Lievens, F.(2003). A practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
 \emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
-
 }
 

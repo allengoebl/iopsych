@@ -6,24 +6,38 @@ utils::globalVariables(c("uc", "sr_majority", "sr_minority", "ai", "rxx", "ryy")
 #' Convert from r to d
 #' 
 #' @param r A r-value or a vector of r values.
+#' @param n_1 The sample size of group 1.
+#' @param n_2 The sample size of group 2.
 #' @return A d value or a vector of d values.
-#' @author Allen Goebl and Jeff Jones
+#' @author Jeff Dahlke, Allen Goebl, and Jeff Jones
 #' @examples
 #' cor2d(.3)
+#' cor2d(.3, n_1 = 20, n_2 = 50)
 #' cor2d(((1:9)/10))
 #' @export
-cor2d <- function (r) ((2 * r) / sqrt(1 - (r ^ 2)))
+cor2d <- function (r, n_1 = 1, n_2 = 1) {
+     n <- n_1 + n_2
+     a <- 1 / (n_1 * n_2 / n^2)
+     return((sqrt(a) * r)/sqrt(1 - (r^2)))
+}
 
 #' Convert from d to r
 #' 
 #' @param d A d-value or a vector of d values.
+#' @param n_1 The sample size of group 1.
+#' @param n_2 The sample size of group 2.
 #' @return A r value or a vector of r values.
-#' @author Allen Goebl and Jeff Jones
+#' @author Jeff Dahlke, Allen Goebl, and Jeff Jones
 #' @examples
 #' d2cor(.3)
+#' d2cor(.3, n_1 = 20, n_2 = 50)
 #' d2cor(((1:9)))
 #' @export
-d2cor <- function (d) (sqrt((d ^ 2) / (4 + (d ^ 2))))
+d2cor <- function (d, n_1 = 1, n_2 = 1) {
+     n <- n_1 + n_2
+     a <- 1 / (n_1 * n_2 / n^2)
+     return(sqrt((d^2)/(a + (d^2))))
+}
 
 #' Estimates the d of a composite.
 #'

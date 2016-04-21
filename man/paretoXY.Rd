@@ -25,7 +25,7 @@ paretoXY(r_mat, x_col, y_col, d_vec, gen = 100, pop = 100,
 \item{pred_upper}{The maximum weight allowed for each predictor.}
 }
 \value{
-  \describe{
+\describe{
     \item{betas}{A matrix of beta weights for each criteria weight}
     \item{mr_d}{A matrix of multiple correlations or d values 
                 corresponding to each row of beta weights.}

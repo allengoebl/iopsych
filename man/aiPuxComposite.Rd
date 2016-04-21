@@ -15,25 +15,18 @@ This argument assumes that the predictors come first in the matrix.}
 \item{x_col}{A vector of columns representing predictor variables.}
 
 \item{dX}{A vector of d values for the predictors. These d values are expected
-<<<<<<< HEAD
-to have been computed in the direction of Majority - Minority.}
-
-\item{dY}{A vector of d values for the criteria These d values are expected
-to have been computed in the direction of Majority - Minority.}
-=======
 to have been computed in the direction of Minority - Majority.}
 
 \item{dY}{A vector of d values for the criteria These d values are expected
 to have been computed in the direction of Minority - Majority.}
->>>>>>> master
 
 \item{wt_x}{Weights for the predictors to form the overall composite predictor.}
 
 \item{wt_y}{Weights for the criteria to form the overall composite criterion.}
 
-\item{sr}{The percentage of the applicant population who are selected.}
+\item{sr}{The percentage of the applicant population that is selected.}
 
-\item{pct_minority}{The percentage of the applicant population who are part of
+\item{pct_minority}{The percentage of the applicant population that is part of
 a given minority group.}
 }
 \value{
@@ -78,6 +71,7 @@ Jeff Jones and Allen Goebl
 De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
 \emph{International Journal of Selection and Assessment, 11(1)}, 87-95.
+
 De Corte, W. (2003). Caiqs user's guide. http://allserv.rug.ac.be/~wdecorte/software.html
 }
 
