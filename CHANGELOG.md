@@ -10,3 +10,4 @@
 3. Updated formatting in manual.
 4. Added n arguments to d2cor and cor2d.
 5. Added Jeff as author.
+6. All matrix inversions are now done using cholesky decompositions.
