@@ -4,10 +4,14 @@
 \alias{d2cor}
 \title{Convert from d to r}
 \usage{
-d2cor(d)
+d2cor(d, n_1 = 1, n_2 = 1)
 }
 \arguments{
 \item{d}{A d-value or a vector of d values.}
+
+\item{n_1}{The sample size of group 1.}
+
+\item{n_2}{The sample size of group 2.}
 }
 \value{
 A r value or a vector of r values.
@@ -17,9 +21,10 @@ Convert from d to r
 }
 \examples{
 d2cor(.3)
+d2cor(.3, n_1 = 20, n_2 = 50)
 d2cor(((1:9)))
 }
 \author{
-Allen Goebl and Jeff Jones
+Jeff Dahlke, Allen Goebl, and Jeff Jones
 }
 

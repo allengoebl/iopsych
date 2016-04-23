@@ -17,7 +17,7 @@
     mat <- unname(r_mat)
     cond <- as.logical(c(0,0,0))
     cond[1] <- isSymmetric.matrix(mat) #Is symetric matrix
-    cond[2] <- prod(diag(mat)) == 1 #All ones on diagonal
+    cond[2] <- isTRUE(all.equal(prod(diag(mat)), 1)) #All ones on diagonal
     cond[3] <- sum(as.integer(mat)) == dim(mat)[1] #All between (1 & -1)
     if(all(cond) == FALSE) {stop("Invalid Correlation Matrix")}
 }
@@ -115,10 +115,6 @@
 #' @keywords internal
 #' @rdname internal.corAdd
 .corAdd <- function(r_mat, r_vec, lab=""){
-    #Validate Input
-    .isCorMat(r_mat)
-    if(nrow(r_mat) != length(r_vec)) { stop("Input dimensions do not match.") }
-    #Expand Correlation matrix
     new_mat <- cbind(r_mat, r_vec)
     out <- (rbind(new_mat, c(r_vec, 1)))
     colnames(out) <- c(colnames(r_mat), lab)

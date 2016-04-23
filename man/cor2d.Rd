@@ -4,10 +4,14 @@
 \alias{cor2d}
 \title{Convert from r to d}
 \usage{
-cor2d(r)
+cor2d(r, n_1 = 1, n_2 = 1)
 }
 \arguments{
 \item{r}{A r-value or a vector of r values.}
+
+\item{n_1}{The sample size of group 1.}
+
+\item{n_2}{The sample size of group 2.}
 }
 \value{
 A d value or a vector of d values.
@@ -17,9 +21,10 @@ Convert from r to d
 }
 \examples{
 cor2d(.3)
+cor2d(.3, n_1 = 20, n_2 = 50)
 cor2d(((1:9)/10))
 }
 \author{
-Allen Goebl and Jeff Jones
+Jeff Dahlke, Allen Goebl, and Jeff Jones
 }
 
