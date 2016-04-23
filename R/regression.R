@@ -105,7 +105,7 @@
 #' print("example needed")
 #' @keywords internal
 #' @rdname internal.rmatBeta
-.rmatBeta <- function(rxx, rxy) qr.solve(rxx) %*% (rxy)
+.rmatBeta <- function(rxx, rxy) chol2inv(chol(rxx)) %*% (rxy)
 
 #' Find regression weights and R2
 #' 
@@ -118,7 +118,7 @@
 #' @keywords internal
 #' @rdname internal.rmatReg
 .rmatReg <- function(rxx, rxy) {
-    beta <- qr.solve(rxx) %*% (rxy)
+    beta <- chol2inv(chol(rxx)) %*% (rxy)
     R2 <- t(beta) %*% rxy
     out <- (list(R2, beta))
     names(out) <- c("R2", "beta")
@@ -138,7 +138,7 @@
 #' @keywords internal
 #' @rdname internal.rmatBetaPE
 .rmatBetaPE <- function(rxx){
-    rxx_qr <- qr.solve(rxx)
+    rxx_qr <- chol2inv(chol(rxx))
     return(function(rxy) (rxx_qr %*% (rxy)))
 }
 
@@ -282,7 +282,7 @@ rmatRegPE <- function(rxx){
     #Check input
     .isCorMat(rxx)
     #Function
-    rxx_qr <- qr.solve(rxx)
+    rxx_qr <- chol2inv(chol(rxx))
     fn <- function(rxy){
       beta <- rxx_qr %*% (rxy)
       R2 <- t(beta) %*% rxy

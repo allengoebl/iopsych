@@ -26,7 +26,7 @@
     L <- diag(VLV$values)
     #Equations
     lambda_star <- V %*% sqrt(L) %*% t(V)
-    beta_star <- solve(lambda_star, rxy) #NOTE: Test qr.solve
+    beta_star <- solve(lambda_star, rxy) 
     eps <- data.frame(EPS = (lambda_star^2) %*% (beta_star^2), stringsAsFactors=FALSE)
     #Return Values
     rownames(eps) <- rownames(rxx)
