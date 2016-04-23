@@ -14,12 +14,16 @@
 #' @keywords internal
 #' @rdname internal.isCorMat
 .isCorMat <- function(r_mat) {
+    if (!class(r_mat) == "matrix") { stop("Input must be of class 'matrix'.") }
     mat <- unname(r_mat)
-    cond <- as.logical(c(0,0,0))
-    cond[1] <- isSymmetric.matrix(mat) #Is symetric matrix
-    cond[2] <- isTRUE(all.equal(prod(diag(mat)), 1)) #All ones on diagonal
-    cond[3] <- sum(as.integer(mat)) == dim(mat)[1] #All between (1 & -1)
-    if(all(cond) == FALSE) {stop("Invalid Correlation Matrix")}
+    if(!isSymmetric.matrix(mat)) { 
+        stop("Correlation matrices must be symmetric.") 
+    }
+    if(!all(diag(mat) == 1)) { 
+        stop("Correlation matrix diagonals must only contain ones.") 
+    }
+    if(!sum(as.integer(mat)) == dim(mat)[1]) {
+        stop("All values in a correlation matrix must be be between 1 and -1.")}
 }
 
 #' Are y_col and x_col appropriate indexs for r_mat?
