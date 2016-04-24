@@ -19,10 +19,20 @@ fuse(r_mat, a, b, wt_a = rep(1, length(a)), wt_b = rep(1, length(b)))
 }
 \value{
 A correlation coefficient.
+  \describe{
+    \item{correlation}{The correlation between two composites.}
+    \item{covariance}{The covariance between two composites.}
+    \item{variance_a}{The variance of composite A.}
+    \item{variance_b}{The variance of composite B.}
+  }
 }
 \description{
 Computes the correlation between two composites of items. Composites may 
 contain overalapping items. Items weights for each composite may be specified.
+}
+\note{
+This function is entended to be used for single cases. See \code{fuse2()} 
+      for a vectorized alternative to this function.
 }
 \examples{
 Rxx <- matrix(c(1.00, 0.25,  0.50,  0.61,

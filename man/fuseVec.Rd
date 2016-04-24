@@ -2,35 +2,35 @@
 % Please edit documentation in R/fuse.R
 \name{fuseVec}
 \alias{fuseVec}
-\title{Computes the correlation between a composite and a vector of items.}
+\title{Computes the correlations between a correlation matrix and a weighted composite
+of items from the matrix.}
 \usage{
-fuseVec(r_mat, a, wt_a = rep(1, length(a)), output = "vec")
+fuseVec(r_mat, wt)
 }
 \arguments{
 \item{r_mat}{A correlation matrix.}
 
-\item{a}{The items used for composite A specified as a vector of column numbers.}
-
-\item{wt_a}{A vector containing the weights of each item in composite A.}
-
-\item{output}{Output can be set to "mat", to return a matrix made up of the
-newly generated correlations appened to the original correlation matrix.}
+\item{wt}{A vector containing the weights of each item in composite A or a
+matrix with one row per weight vector.}
 }
 \value{
-A vector of correlation coefficients.
+A vector of correlation coefficients will be returned if \code{wt_a}
+        is a vector. If /code{wt_b} is a matrix, a matrix of correlation 
+        coefficients with one row for each weight vector will be returned.
 }
 \description{
-Computes the correlation between a composite and a vector of items.
+Computes the correlations between a correlation matrix and a weighted composite
+of items from the matrix.
 }
 \examples{
 data(dls2007)
 dat <- dls2007
 rxx <- dat[1:4, 2:5]
-items <- c(1,3)
-wt_a <- c(2,1)
+wt1 <- c(1, 1, 1, 1)
+wt2 <- c(2, 0, 1, 0)
+wt  <- rbind(wt1, wt2)
 
-fuseVec(r_mat=rxx, a=items)
-fuseVec(r_mat=rxx, a=items, wt_a=wt_a, output="mat")
+fuseVec(r_mat=rxx, wt=wt1)
 }
 \author{
 Allen Goebl and Jeff Jones

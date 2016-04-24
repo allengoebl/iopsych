@@ -4,21 +4,20 @@
 \alias{fuseMat}
 \title{The intercorrelation among items and composites made of these items.}
 \usage{
-fuseMat(r_mat, key_mat, type = "full")
+fuseMat(r_mat, wt, type = "full")
 }
 \arguments{
 \item{r_mat}{A correlation matrix.}
 
-\item{key_mat}{A matrix with one row for each composite and one column for 
-each item contained in r_mat. The value if each element corresponds
+\item{wt}{A matrix with one row for each composite and one column for 
+each item contained in \code{r_mat}. The value if each element corresponds
 to the weight given to an item.}
 
 \item{type}{The type of output desired.}
 }
 \value{
 If \code{type} = "cxc" then a matrix of the intercorrelations between the specified 
-        composites are returned. If \code{type} = "cxr" then the intercorrelations 
-        between the original item and the specified composites are returned.
+        composites are returned. 
         If \code{type} = "full" then all the intercorrelations between both the
         original items and the specified composites are returned.
 }
@@ -34,16 +33,16 @@ Rxx <- matrix(c(1.00, 0.25,  0.50,  0.61,
                 0.61, 0.10, -0.30,  1.00), 4, 4); Rxx
 
 # Single composite
-Key <- matrix(c(1, 2, 3, -1), 1, 4); Key
+wt <- matrix(c(1, 2, 3, -1), 1, 4); wt
 
-fuseMat(r_mat = Rxx, key_mat = Key)
+fuseMat(r_mat = Rxx, wt = wt)
 
 # Three composites
-Key <- matrix(c(1, 2, 3, -1,
+wt  <- matrix(c(1, 2, 3, -1,
                 2, 1, 0, -2,
                 1, 1, 0,  0), 3, 4, byrow = TRUE)
 
-fuseMat(Rxx, Key)
+fuseMat(Rxx, wt)
 }
 \author{
 Allen Goebl and Jeff Jones

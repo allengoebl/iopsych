@@ -1,85 +1,6 @@
 # These functions use fuse() to calculate correlations between item composites.
 
 
-# Internal functions ----------------------------------------------------------
-
-
-#' Correlations between item composites and the original correlation matrix
-#' 
-#' The key matrix is used to specify any number of weighted item composites.
-#' The correlations between each specified composite and the original correlation
-#' matrix are computed.
-#'
-#' @param r_mat A correlation matrix.
-#' @param key_mat A matrix with one row for each composite and one column for 
-#'        each item contained in r_mat. The value if each element corresponds
-#'        to the weight given to an item.
-#' @return A matrix of intercorrelations.
-#' @author Allen Goebl and Jeff Jones
-#' @examples
-#' print("example needed")
-#' @keywords internal
-#' @rdname internal.fuseRmat
-.fuseRmat <- function(r_mat, key_mat) {
-    len <- dim(key_mat)[1]
-    input <- .unpackMat(key_mat)
-    fn <- function(x) {
-        fuseVec(r_mat=r_mat, a=input$key_id[[x]], wt_a=input$key_wt[[x]])
-    }
-    return(sapply(seq(len), fn))
-}
-#' Computes the intercorrelations of item composites
-#' 
-#' The key matrix is used to specify any number of weighted item composites.
-#' A correlation matrix of these composites is then computed and returned.
-#'
-#' @param r_mat A correlation matrix.
-#' @param key_mat A matrix with one row for each composite and one column for 
-#'        each item contained in r_mat. The value if each element corresponds
-#'        to the weight given to an item.
-#' @return A matrix of intercorrelations.
-#' @author Allen Goebl and Jeff Jones
-#' @examples
-#' print("example needed")
-#' @keywords internal
-#' @rdname internal.fuseCom
-.fuseCom <- function(r_mat, key_mat) {
-    input <- .unpackMat(key_mat)
-    unpackedfuse <- function(X, Y){
-      ua <- .unpack(key_mat[X,])
-      ub <- .unpack(key_mat[Y,])
-      fuse(r_mat=r_mat, a=ua$key_id, b=ub$key_id, wt_a=ua$key_wt, wt_b=ub$key_wt)
-    }
-    len <- dim(key_mat)[1]
-    return(outer(X=1:len, Y=1:len, FUN=Vectorize(unpackedfuse)))
-}
-
-#' The intercorrelation among items and composites made of these items.
-#' 
-#' The key matrix is used to specify any number of weighted item composites.
-#' A correlation matrix of these composites and the original correlation matrix
-#' is then computed and returned.
-#'
-#' @param r_mat A correlation matrix.
-#' @param key_mat A matrix with one row for each composite and one column for 
-#'        each item contained in r_mat. The value if each element corresponds
-#'        to the weight given to an item.
-#' @return A matrix of intercorrelations.
-#' @author Allen Goebl and Jeff Jones
-#' @examples
-#' print("example needed")
-#' @keywords internal
-#' @rdname internal.fusefull
-.fuseFull <- function(r_mat, key_mat) {
-    swr <- .fuseRmat(r_mat=r_mat, key_mat=key_mat)
-    sws <- .fuseCom(r_mat=r_mat, key_mat=key_mat)
-    #Combine 4 matrices together.
-    tp <- cbind(r_mat, swr)
-    bt <- cbind(t(swr), sws)
-    return(rbind(tp,bt))
-}
-
-
 # External functions ----------------------------------------------------------
 
 
@@ -94,6 +15,14 @@
 #' @param wt_a A vector containing the weights of each item in composite A.
 #' @param wt_b A vector containing the weights of each item in composite B.
 #' @return A correlation coefficient.
+#'   \describe{
+#'     \item{correlation}{The correlation between two composites.}
+#'     \item{covariance}{The covariance between two composites.}
+#'     \item{variance_a}{The variance of composite A.}
+#'     \item{variance_b}{The variance of composite B.}
+#'   }
+#' @note This function is entended to be used for single cases. See \code{fuse2()} 
+#'       for a vectorized alternative to this function. 
 #' @author Allen Goebl and Jeff Jones
 #' @references Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
 #'             menal test scores}.
@@ -125,17 +54,67 @@ fuse <- function(r_mat, a, b, wt_a=rep(1, length(a)), wt_b=rep(1, length(b))) {
     aa <- (wt_a %*% r_mat[a,a] %*% wt_a)
     bb <- (wt_b %*% r_mat[b,b] %*% wt_b)
     #Equation
-    return(ab / (sqrt(aa) * sqrt(bb)))
+    return(ab / (sqrt(aa * bb)))
 }
 
-#' Computes the correlation between a composite and a vector of items.
+#' Computes the correlation between two composites of items using weights.
+#' 
+#' Computes the correlation between two composites of items. Composites may 
+#' contain overalapping items. Items weights for each composite may be specified.
+#'
+#' @param r_mat A correlation matrix.
+#' @param wt_a A vector containing the weights of each item in composite A. 
+#'        Items which are not included in the composite should be assigned a
+#'        weight of 0.
+#' @param wt_b A vector containing the weights of each item in composite B. 
+#'        Items which are not included in the composite should be assigned a
+#'        weight of 0.
+#' @return A correlation coefficient.
+#' @note This is an alternative version of \code{fuse()} which uses weight vectors
+#'       to specify both item selection and weight. This syntax maybe be preferable
+#'       to some users. Furthermore, this function is more powerful in that it
+#'       can return values for multiple sets of weights.
+#' @author Allen Goebl and Jeff Jones
+#' @references Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
+#'             menal test scores}.
+#' @examples
+#' Rxx <- matrix(c(1.00, 0.25,  0.50,  0.61,
+#'                 0.25, 1.00,  0.30,  0.10,
+#'                 0.50, 0.30,  1.00, -0.30,
+#'                 0.61, 0.10, -0.30,  1.00), 4, 4)
+#' wt_a   <- c(1, 0, 1, 0)
+#' wt_b   <- c(0, 1, 0, 1)
+#' 
+#' # Example using overlapping items and weights
+#' Rxx  <- matrix(.3, 4, 4); diag(Rxx) <- 1
+#' wt_a <- c(.60, .25, 0, .15)
+#' wt_b <- c(0, 2, 3, 0)
+#' 
+#' fuse2(r_mat = Rxx, wt_a = wt_a, wt_b = wt_b)
+#' 
+#' @export
+fuse2 <- function(r_mat, wt_a, wt_b) {
+    #Sanity check
+    .isCorMat(r_mat)
+    if (is.vector(wt_a)) {dim(wt_a) <- c(1, length(wt_a))}
+    if (is.vector(wt_b)) {dim(wt_b) <- c(1, length(wt_b))}
+    #Variances
+    ab <- (wt_a %*% r_mat %*% t(wt_b))
+    aa <- diag(wt_a %*% r_mat %*% t(wt_a))
+    bb <- diag(wt_b %*% r_mat %*% t(wt_b))
+    #Equation
+    return(ab / (sqrt(aa %o% bb)))
+}
+
+#' Computes the correlations between a correlation matrix and a weighted composite
+#' of items from the matrix.
 #' 
 #' @param r_mat A correlation matrix.
-#' @param a The items used for composite A specified as a vector of column numbers.
-#' @param wt_a A vector containing the weights of each item in composite A.
-#' @param output Output can be set to "mat", to return a matrix made up of the
-#'        newly generated correlations appened to the original correlation matrix.
-#' @return A vector of correlation coefficients.
+#' @param wt A vector containing the weights of each item in composite A or a
+#'        matrix with one row per weight vector.
+#' @return A vector of correlation coefficients will be returned if \code{wt_a}
+#'         is a vector. If /code{wt_b} is a matrix, a matrix of correlation 
+#'         coefficients with one row for each weight vector will be returned.
 #' @author Allen Goebl and Jeff Jones
 #' @references Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
 #'             mental test scores}.
@@ -143,20 +122,21 @@ fuse <- function(r_mat, a, b, wt_a=rep(1, length(a)), wt_b=rep(1, length(b))) {
 #' data(dls2007)
 #' dat <- dls2007
 #' rxx <- dat[1:4, 2:5]
-#' items <- c(1,3)
-#' wt_a <- c(2,1)
+#' wt1 <- c(1, 1, 1, 1)
+#' wt2 <- c(2, 0, 1, 0)
+#' wt  <- rbind(wt1, wt2)
 #' 
-#' fuseVec(r_mat=rxx, a=items)
-#' fuseVec(r_mat=rxx, a=items, wt_a=wt_a, output="mat")
+#' fuseVec(r_mat=rxx, wt=wt1)
 #' @export
-fuseVec <- function(r_mat, a, wt_a=rep(1, length(a)), output="vec") {
+fuseVec <- function(r_mat, wt) {
+    #Sanity check
     .isCorMat(r_mat)
-    len <- nrow(r_mat)
-    out.vec <- sapply(seq(len),
-                  function(x) fuse(r_mat=r_mat, a=a, b=x, wt_a=wt_a, wt_b=1))
-    if(output == "vec") { return(out.vec) }
-    else if(output == "mat") { return(.corAdd(r_mat=r_mat, r_vec=out.vec)) }
-    else (stop("The output type is incorrectly specified."))
+    if (is.vector(wt)) {dim(wt) <- c(1, length(wt))}
+    #Variances
+    ab <- wt %*% r_mat
+    aa <- diag(wt %*% r_mat %*% t(wt))
+    #Equation
+    return(ab / (sqrt(aa)))
 }
 
 #' The intercorrelation among items and composites made of these items.
@@ -166,13 +146,12 @@ fuseVec <- function(r_mat, a, wt_a=rep(1, length(a)), output="vec") {
 #' is then computed and returned.
 #'
 #' @param r_mat A correlation matrix.
-#' @param key_mat A matrix with one row for each composite and one column for 
-#'        each item contained in r_mat. The value if each element corresponds
+#' @param wt A matrix with one row for each composite and one column for 
+#'        each item contained in \code{r_mat}. The value if each element corresponds
 #'        to the weight given to an item.
 #' @param type The type of output desired.
 #' @return If \code{type} = "cxc" then a matrix of the intercorrelations between the specified 
-#'         composites are returned. If \code{type} = "cxr" then the intercorrelations 
-#'         between the original item and the specified composites are returned.
+#'         composites are returned. 
 #'         If \code{type} = "full" then all the intercorrelations between both the
 #'         original items and the specified composites are returned.
 #' @author Allen Goebl and Jeff Jones
@@ -183,26 +162,25 @@ fuseVec <- function(r_mat, a, wt_a=rep(1, length(a)), output="vec") {
 #'                 0.61, 0.10, -0.30,  1.00), 4, 4); Rxx
 #' 
 #' # Single composite
-#' Key <- matrix(c(1, 2, 3, -1), 1, 4); Key
+#' wt <- matrix(c(1, 2, 3, -1), 1, 4); wt
 #' 
-#' fuseMat(r_mat = Rxx, key_mat = Key)
+#' fuseMat(r_mat = Rxx, wt = wt)
 #' 
 #' # Three composites
-#' Key <- matrix(c(1, 2, 3, -1,
+#' wt  <- matrix(c(1, 2, 3, -1,
 #'                 2, 1, 0, -2,
 #'                 1, 1, 0,  0), 3, 4, byrow = TRUE)
 #' 
-#' fuseMat(Rxx, Key)
+#' fuseMat(Rxx, wt)
 #' @export
-fuseMat <- function(r_mat, key_mat, type="full"){
+fuseMat <- function(r_mat, wt, type="full"){
     #Check input
     .isCorMat(r_mat)
-    if(nrow(r_mat) != ncol(key_mat)) { stop("key_mat does not match r_mat") }
-    #Call specified function
-    switch(type,
-           full = { out <- .fuseFull(r_mat=r_mat, key_mat=key_mat)},
-           rxc  = { out <- .fuseRmat(r_mat=r_mat, key_mat=key_mat)},
-           cxc  = { out <- .fuseCom(r_mat=r_mat, key_mat=key_mat)})
-    return(out)
+    if(nrow(r_mat) != ncol(wt)) { stop("key_mat does not match r_mat") }
+    #Fuse
+    if(type == "full") { wt <- rbind(diag(nrow(r_mat)), wt) }
+    v <- (wt %*% r_mat %*% t(wt))
+    diagv <- diag(v)
+    return(v / (sqrt(diagv %o% diagv)))
 }
 
