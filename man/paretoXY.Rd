@@ -4,7 +4,7 @@
 \alias{paretoXY}
 \title{Computes data needed for a XY Pareto plot.}
 \usage{
-paretoXY(r_mat, x_col, y_col, d_vec, gen = 100, pop = 100,
+paretoXY(r_mat, x_col, y_col, d_vec = NULL, gen = 100, pop = 100,
   pred_lower = rep(-2, length(x_col)), pred_upper = rep(2, length(x_col)))
 }
 \arguments{
@@ -42,7 +42,7 @@ dat <- dls2007
 r_mat <- dat[1:6, 2:7]
 x_col <- 1:4 
 y_col <- 5:6
-d_vec <- dat[1:4, 1]
+d_vec <- -dat[1:4, 1]
 
 paretoXY(r_mat=r_mat, x_col=1:4, y_col=5, d_vec=d_vec, pred_lower=c(0,0,0,0))
 paretoXY(r_mat=r_mat, x_col=1:4, y_col=c(5,6))

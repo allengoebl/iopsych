@@ -1,5 +1,4 @@
-# This file contains functions for converting between r and d.
-
+# This file contains functions for adverse impact.
 utils::globalVariables(c("uc", "sr_majority", "sr_minority", "ai", "rxx", "ryy"))
 
 

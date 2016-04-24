@@ -134,7 +134,7 @@ fuse <- function(r_mat, a, b, wt_a=rep(1, length(a)), wt_b=rep(1, length(b))) {
 #' @param a The items used for composite A specified as a vector of column numbers.
 #' @param wt_a A vector containing the weights of each item in composite A.
 #' @param output Output can be set to "mat", to return a matrix made up of the
-#' newly generated correlations appened to the original correlation matrix.
+#'        newly generated correlations appened to the original correlation matrix.
 #' @return A vector of correlation coefficients.
 #' @author Allen Goebl and Jeff Jones
 #' @references Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
@@ -173,7 +173,8 @@ fuseVec <- function(r_mat, a, wt_a=rep(1, length(a)), output="vec") {
 #' @return If \code{type} = "cxc" then a matrix of the intercorrelations between the specified 
 #'         composites are returned. If \code{type} = "cxr" then the intercorrelations 
 #'         between the original item and the specified composites are returned.
-#'         If \code{type} = "full" then all the intercorrelations between both the original items and the specified composites are returned.
+#'         If \code{type} = "full" then all the intercorrelations between both the
+#'         original items and the specified composites are returned.
 #' @author Allen Goebl and Jeff Jones
 #' @examples
 #' Rxx <- matrix(c(1.00, 0.25,  0.50,  0.61,
