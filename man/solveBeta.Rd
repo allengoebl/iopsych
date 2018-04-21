@@ -30,4 +30,3 @@ solveBeta(rxx=rxx, rxy=rxy)
 \author{
 Allen Goebl and Jeff Jones
 }
-

@@ -27,12 +27,11 @@ vpp   <- rcea1994$vpp
 
 lMvrrc(rcov=vstar, vnp=vpp)
 }
-\author{
-The original function was written by Adam Beatty and adapted by Allen Goebl.
-}
 \references{
 Lawley D. N (1943). A note on Karl Pearson's selection formulae. 
             \emph{Proceedings of the Royal Society of Edinburgh,
             62(Section A, Pt. 1)}, 28-30.
 }
-
+\author{
+The original function was written by Adam Beatty and adapted by Allen Goebl.
+}

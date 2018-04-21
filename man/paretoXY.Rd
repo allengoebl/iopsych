@@ -5,7 +5,8 @@
 \title{Computes data needed for a XY Pareto plot.}
 \usage{
 paretoXY(r_mat, x_col, y_col, d_vec = NULL, gen = 100, pop = 100,
-  pred_lower = rep(-2, length(x_col)), pred_upper = rep(2, length(x_col)))
+  pred_lower = rep(-2, length(x_col)), pred_upper = rep(2, length(x_col)),
+  ...)
 }
 \arguments{
 \item{r_mat}{A correlation matrix.}
@@ -50,4 +51,3 @@ paretoXY(r_mat=r_mat, x_col=1:4, y_col=c(5,6))
 \author{
 Allen Goebl Jeff Jones
 }
-

@@ -31,13 +31,12 @@ for a dichotomous criterion.
 \examples{
 #trUtility(rxy=.5, sr=.5, br=.6, dbr=1000)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Roomsburg (1989). \emph{Utility as a function of selection ratio
 and base rate: An empirical investigation of military aviation selection.}
 (Doctoral dissertation).
 }
+\author{
+Allen Goebl and Jeff Jones
+}
 \keyword{internal}
-

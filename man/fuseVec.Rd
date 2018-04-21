@@ -32,11 +32,10 @@ wt  <- rbind(wt1, wt2)
 
 fuseVec(r_mat=rxx, wt=wt1)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
             mental test scores}.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

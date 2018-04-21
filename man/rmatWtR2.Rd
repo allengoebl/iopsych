@@ -43,4 +43,3 @@ rmatWtR2(r_mat=r_mat, y_col=6, x_col=1:4, wt=wt_mat)
 \author{
 Allen Goebl and Jeff Jones
 }
-

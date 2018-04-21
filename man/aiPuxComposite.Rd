@@ -64,9 +64,6 @@ aiPuxComposite(R, 5:6, 1:4, dX, dY, wt_x, wt_y, sr, pct_minority)
 # compare the output from predictAI with the output in the CAIQS manual on page 7 where SR = .250
 
 }
-\author{
-Jeff Jones and Allen Goebl
-}
 \references{
 De Corte, W., Lievens, F.(2003). A Practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
@@ -74,4 +71,6 @@ the quality and the adverse impact of single-stage selection decisions.
 
 De Corte, W. (2003). Caiqs user's guide. http://allserv.rug.ac.be/~wdecorte/software.html
 }
-
+\author{
+Jeff Jones and Allen Goebl
+}

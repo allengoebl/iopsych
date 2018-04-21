@@ -37,11 +37,10 @@ This functions can except either (1) pux, (2) uxs and rxy, or (3) sr and rxy.
 \examples{
 utilityBcg(sdy=10000, rxy=.50, sr=.30)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Cronbach, L. J., & Gleser, G. C. (1965). \emph{Psychological  
 tests and personnel decisions}.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

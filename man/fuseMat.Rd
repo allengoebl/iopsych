@@ -47,4 +47,3 @@ fuseMat(Rxx, wt)
 \author{
 Allen Goebl and Jeff Jones
 }
-

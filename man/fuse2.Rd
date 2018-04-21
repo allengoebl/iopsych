@@ -46,11 +46,10 @@ wt_b <- c(0, 2, 3, 0)
 fuse2(r_mat = Rxx, wt_a = wt_a, wt_b = wt_b)
 
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Lord, F.M. & Novick, M.R. (1968). \emph{Statisticl theories of 
             menal test scores}.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

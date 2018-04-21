@@ -29,12 +29,11 @@ than rxy as an argument.
 \examples{
 utilityShp(sdy=10000, d=.50, period=4)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Schmidt, F. L., Hunter, J. E., & Pearlman, K. (1982). Assessing
   the economic impact of personnel programs on workforce productivity.
   \emph{Personnel Psychology, 35(2)}, 333-347.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

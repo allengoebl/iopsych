@@ -29,4 +29,3 @@ Many utility functions can except either (1) pux, (2) uxs and rxy, or
 Allen Goebl and Jeff Jones
 }
 \keyword{internal}
-

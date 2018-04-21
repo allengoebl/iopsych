@@ -22,4 +22,3 @@ Selection quality and adverse impact implications of considering second-stratum
 cognitive abilities. \emph{Journal of Applied Psychology, 99(4)}.
 }
 \keyword{datasets}
-

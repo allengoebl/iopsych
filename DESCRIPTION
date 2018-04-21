@@ -9,7 +9,7 @@ Depends: R (>= 3.0)
 Imports: mvtnorm (>= 1.0), mco (>= 1.0), stats (>= 1.0), fungible (>= 1.1)
 Description: Collection of functions for IO Psychologists.
 License: BSD_3_clause + file LICENSE
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 NeedsCompilation: no
 Packaged: 2016-04-04 10:18:46 UTC; Zaphkiel
 Repository: CRAN

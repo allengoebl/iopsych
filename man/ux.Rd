@@ -20,12 +20,11 @@ an arbitrary selection ratio using the ordinate of the normal curve.
 \examples{
 ux(.6)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Naylor, J. C., & Shine, L. C. (1965). A table for determining the
  increase in mean criterion score obtained by using a selection device. 
  \emph{Journal of Industrial Psychology}, 78-109.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

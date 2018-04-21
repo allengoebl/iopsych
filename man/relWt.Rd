@@ -35,12 +35,11 @@ xs <- 1:4
 
 relWt(Rs, ys, xs)
 }
-\author{
-Jeff Jones and Allen Goebl
-}
 \references{
 Johnson, J. (2000). A heuristic method for estimating the
             relative weight of predictor variables in multiple regression.
             \emph{Multivariate Behavioral Research, 35}, 1--19.
 }
-
+\author{
+Jeff Jones and Allen Goebl
+}

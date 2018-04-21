@@ -27,4 +27,3 @@ reliabate(r_mat = r_mat, rel_vec = rel)
 \author{
 Allen Goebl and Jeff Jones
 }
-

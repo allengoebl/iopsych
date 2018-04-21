@@ -27,4 +27,3 @@ d2cor(((1:9)))
 \author{
 Jeff Dahlke, Allen Goebl, and Jeff Jones
 }
-

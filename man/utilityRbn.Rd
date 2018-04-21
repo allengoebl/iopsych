@@ -40,11 +40,10 @@ This functions can except either (1) pux, (2) uxs and rxy, or (3) sr and rxy.
 \examples{
 utilityRbn(sdr=10000, a=90000, rxy=.50, sr=.30)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Raju, N.S., Burke, M.J. and Normand, J. (1990). A new approach
 for utility analysis. \emph{Journal of Applied Psychology, 75}, 3-12.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

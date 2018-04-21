@@ -23,4 +23,3 @@ Sign changes when correcting for range restriction: A note on Pearson's and
 Lawley's selection formulas. \emph{Journal of Applied Psychology, 72(2)}, 298.
 }
 \keyword{datasets}
-

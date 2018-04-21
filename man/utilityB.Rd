@@ -43,12 +43,11 @@ This functions can except either (1) pux, (2) uxs and rxy, or (3) sr and rxy.
 \examples{
 utilityB(sdy=10000, rxy=.50, sr=.30, period=4, v=.5, tax=.1, i=.02)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Boudreau, J.W. (1983). Economic considerations in estimating
   the utility of human resource productivity improvement programs. 
   \emph{Personnel Psychology, 36}, 551-576.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

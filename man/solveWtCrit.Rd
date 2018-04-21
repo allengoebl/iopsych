@@ -38,4 +38,3 @@ solveWtCrit(ryy=ryy, rxy=rxy, wt=wt_mat)
 \author{
 Allen Goebl Jeff Jones
 }
-

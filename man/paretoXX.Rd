@@ -40,4 +40,3 @@ lines((XX1$wts)[,1], (XX1$multiple_r)[,2])
 \author{
 Allen Goebl and Jeff Jones
 }
-

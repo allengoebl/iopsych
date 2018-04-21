@@ -19,4 +19,3 @@ predictors to achieve optimal trade-offs between selection quality and adverse
 impact. \emph{Journal of Applied Psychology, 92(5)}, 1380.
 }
 \keyword{datasets}
-

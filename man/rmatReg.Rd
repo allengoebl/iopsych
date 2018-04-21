@@ -44,9 +44,6 @@ rmatReg(Rs, ys, xs)
 # Example with standard errors
 rmatReg(Rs, ys, xs, N = 100)
 }
-\author{
-Allen Goebl and Jeff Jones
-}
 \references{
 Jones, J. A. & Waller, N. G. (2015). The normal-theory and asymptotic 
 distribution-free covariance matrix of standardized regression coefficients: 
@@ -55,4 +52,6 @@ Theoretical extensions and finite sample behavior. \emph{Psychometrika, 80}, 365
 Yuan, K. and Chan, W. (2011). Biases and standard errors of
 standardized regression coefficients. \emph{Psychometrika, 76}, 670-690.
 }
-
+\author{
+Allen Goebl and Jeff Jones
+}

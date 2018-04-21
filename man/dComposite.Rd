@@ -34,11 +34,10 @@ ds  <- c(.1, .3, .7)
 ws  <- c(1, .5, .5)
 dComposite(rxx = Rxx, d_vec = ds, wt_vec = ws)
 }
-\author{
-Jeff Jones and Allen Goebl
-}
 \references{
 Sackett, P. R., & Ellingson, J. E. (1997). \emph{Personnel 
 Psychology., 50(3)}, 707-721.
 }
-
+\author{
+Jeff Jones and Allen Goebl
+}

@@ -37,12 +37,11 @@ Estimate ai and average criterion scores for majority and minority groups.
 aiPux(0.6, dx=-0.8, sr=0.3, pct_minority=0.25)
 aiPux(0.6, dx=-0.8, dy=-0.2, sr=0.3, pct_minority=0.25)
 }
-\author{
-Jeff Jones and Allen Goebl
-}
 \references{
 De Corte, W., Lievens, F.(2003). A practical procedure to estimate
 the quality and the adverse impact of single-stage selection decisions.
 \emph{International Journal of Selection and Assessment.}, 11(1), 87-95.
 }
-
+\author{
+Jeff Jones and Allen Goebl
+}

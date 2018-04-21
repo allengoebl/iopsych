@@ -29,4 +29,3 @@ Appends a new variable into a correlation matrix.
 Allen Goebl and Jeff Jones
 }
 \keyword{internal}
-

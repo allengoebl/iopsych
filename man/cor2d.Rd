@@ -27,4 +27,3 @@ cor2d(((1:9)/10))
 \author{
 Jeff Dahlke, Allen Goebl, and Jeff Jones
 }
-

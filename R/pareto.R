@@ -103,25 +103,36 @@ paretoXX <- function(r_mat, x_col, y_col, pts=100) {
 #' paretoXY(r_mat=r_mat, x_col=1:4, y_col=5, d_vec=d_vec, pred_lower=c(0,0,0,0))
 #' paretoXY(r_mat=r_mat, x_col=1:4, y_col=c(5,6))
 #' @export
+#Pareto function
 paretoXY <- function(r_mat, x_col, y_col, d_vec=NULL, gen=100, pop=100, 
                      pred_lower=rep(-2, length(x_col)),
-                     pred_upper=rep( 2, length(x_col))) {
-    #Terms
-    rxx <- r_mat[x_col, x_col]
-    rxy <- rbind(r_mat[y_col, x_col], d_vec)
-    #Set Objective function
-    obj <- function(a) -t(solveWtPred(rxx=rxx, rxy=rxy, wt=a))
-    #Optimize Objective
-    out <- mco::nsga2(fn           = obj, 
-                      idim         = length(x_col), 
-                      odim         = nrow(rxy), 
-                      generations  = 100, 
-                      popsize      = pop,
-                      lower.bounds = pred_lower,
-                      upper.bounds = pred_upper,
-                      vectorized   = TRUE)
+                     pred_upper=rep( 2, length(x_col)), ...) {
+  #Terms
+  rxx <- r_mat[x_col, x_col]
+  rxy <- rbind(r_mat[y_col, x_col], d_vec)
+  #Set Objective function
+  obj <- function(a) -t(solveWtPred(rxx=rxx, rxy=rxy, wt=a))
+  #Optimize Objective
+  out <- mco::nsga2(fn           = obj, 
+                    idim         = length(x_col), 
+                    odim         = nrow(rxy), 
+                    generations  = gen, 
+                    popsize      = pop,
+                    lower.bounds = pred_lower,
+                    upper.bounds = pred_upper,
+                    vectorized   = TRUE,
+                    ...)
+  #Rename output -- More complex output needed if gen > 1
+  if(!is.null(names(out))) {
     names(out) <- c("betas", "mr_d", "pareto_optimal")
     out$mr_d <- -out$mr_d
     return(out)
+  } else {
+    for (i in 1:length(out)){
+      names(out[[i]]) <- c("betas", "mr_d", "pareto_optimal")
+      out[[i]]$mr_d <- -out[[i]]$mr_d
+    }
+  }
+  out
 }
 

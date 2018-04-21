@@ -24,4 +24,3 @@ print("example needed")
 \author{
 Allen Goebl and Jeff Jones
 }
-

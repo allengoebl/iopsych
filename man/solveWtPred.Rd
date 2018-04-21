@@ -38,4 +38,3 @@ solveWtPred(rxx=rxx, rxy=rxy, wt=wt_mat)
 \author{
 Allen Goebl Jeff Jones
 }
-

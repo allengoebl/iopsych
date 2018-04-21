@@ -20,13 +20,12 @@ Function to implement Johnson's (2000) relative weight computation.
 \examples{
 print("example needed")
 }
-\author{
-Jeff Jones and Allen Goebl
-}
 \references{
 Johnson, J. (2000). A heuristic method for estimating the
             relative weight of predictor variables in multiple regression.
             \emph{Multivariate Behavioral Research, 35}, 1--19.
 }
+\author{
+Jeff Jones and Allen Goebl
+}
 \keyword{internal}
-
